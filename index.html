@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>RC Car Racing - Dharanyalakshmi</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="container">
+    <header class="top">
+      <div class="photo"><img src="car.svg" alt="Car"></div>
+      <div class="intro">
+        <h1>RC Car Racing</h1>
+        <p class="meta">Keyboard controls: ← → accelerate: ↑ brake/reverse: ↓</p>
+      </div>
+    </header>
+
+    <main>
+      <div id="game-area">
+        <canvas id="track" width="900" height="600"></canvas>
+        <div id="hud">
+          <div>Lap: <span id="lap">0</span></div>
+          <div>Time: <span id="time">0.0</span>s</div>
+          <div id="status">Press ↑ to start</div>
+        </div>
+      </div>
+
+      <section id="about">
+        <h2>About</h2>
+        <p>A simple top-down keyboard-controlled RC car racing demo built with HTML, CSS and JavaScript. Use arrow keys to drive. This is a lightweight demo suitable for showcasing on GitHub Pages.</p>
+      </section>
+    </main>
+
+    <footer>
+      <p>Contact: dharanyalakshmi.ug.23.it@francisxavier.ac.in</p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
