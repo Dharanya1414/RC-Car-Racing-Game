@@ -13,6 +13,9 @@ let startTime = null;
 let lapCount = 0;
 let lastLapAngle = null;
 
+// Track color (can be changed with button)
+let trackColor = '#2d2d2d';
+
 const car = {
   x: centerX - outerR + 50,
   y: centerY,
@@ -29,13 +32,28 @@ const car = {
 document.addEventListener('keydown', e => { keys[e.key] = true; });
 document.addEventListener('keyup', e => { keys[e.key] = false; });
 
+// Track color change button
+const changeTrackBtn = document.getElementById('change-track');
+if (changeTrackBtn) {
+  changeTrackBtn.addEventListener('click', () => {
+    const colors = ['#2d2d2d', '#34495e', '#1abc9c', '#8e44ad'];
+    trackColor = colors[Math.floor(Math.random() * colors.length)];
+  });
+}
+
+// Add speed display dynamically
+const hud = document.getElementById('hud');
+const speedDisplay = document.createElement('span');
+speedDisplay.id = 'speed';
+hud.appendChild(speedDisplay);
+
 function pointOnEllipse(cx, cy, rx, ry, angle){
   return { x: cx + rx * Math.cos(angle), y: cy + ry * Math.sin(angle) };
 }
 
 function drawTrack(){
   // outer
-  ctx.fillStyle = '#2d2d2d';
+  ctx.fillStyle = trackColor;
   ctx.beginPath();
   ctx.ellipse(centerX, centerY, outerR, outerR*0.6, 0, 0, Math.PI*2);
   ctx.fill();
@@ -158,6 +176,9 @@ function loop(now){
     document.getElementById('time').textContent = t.toFixed(1);
   }
 
+  // update speed display
+  document.getElementById('speed').textContent = `Speed: ${car.speed.toFixed(1)}`;
+
   requestAnimationFrame(loop);
 }
 
@@ -174,3 +195,7 @@ render();
 requestAnimationFrame(loop);
 console.log('Game loaded');
 
+// Show welcome message on load
+window.addEventListener('load', () => {
+  alert('Welcome to the RC Car Challenge! 🚗💨 Use arrow keys or WASD to drive.');
+});
