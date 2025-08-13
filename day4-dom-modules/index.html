@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Day 4 – DOM Manipulation & ES6 Modules</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <h1>Day 4 – DOM & Modules (Pre-React)</h1>
+
+  <div class="actions">
+    <button id="createCardBtn">Create Card</button>
+    <button id="addProfileBtn">Add Profile</button>
+    <span class="count">Cards: <strong id="count">0</strong></span>
+  </div>
+
+  <h2>Cards</h2>
+  <div id="cardContainer" class="grid"></div>
+
+  <h2>Profiles</h2>
+  <div id="profileContainer" class="grid"></div>
+
+  <p id="mathOut" class="muted"></p>
+
+  <!-- ES6 modules entry -->
+  <script type="module" src="./main.js"></script>
+</body>
+</html>
